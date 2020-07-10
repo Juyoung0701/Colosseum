@@ -3,15 +3,15 @@ package kr.co.namu.colosseum
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_sing_up.*
+import kotlinx.android.synthetic.main.activity_sign_up.*
 import kr.co.namu.colosseum.utils.ServerUtil
 import org.json.JSONObject
 
-class SingUpActivity : BaseActivity() {
+class SignUpActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_sing_up)
+    setContentView(R.layout.activity_sign_up)
         setupEvents()
         setValues()
 

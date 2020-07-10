@@ -1,19 +1,18 @@
 package kr.co.namu.colosseum
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_login.*
 import kr.co.namu.colosseum.utils.ServerUtil
 import org.json.JSONObject
 
-class MainActivity : BaseActivity() {
+class LoginActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_login)
         setupEvents()
         setValues()
     }
@@ -21,19 +20,19 @@ class MainActivity : BaseActivity() {
     override fun setupEvents() {
 
         signUpBtn.setOnClickListener {
-            val myIntent = Intent(mContext, SingUpActivity::class.java)
+            val myIntent = Intent(mContext, SignUpActivity::class.java)
             startActivity(myIntent)
 
         }
         loginBtn.setOnClickListener {
 //            입력한 아이디 / 비번 받아오기
-            val inputId = idEdt.text.toString()
+            val inputEmail = idEdt.text.toString()
             val inputPw = pwEdt.text.toString()
 
 //            서버에 로그인 요청 시도
             ServerUtil.postRequestLogin(
                 mContext,
-                inputId,
+                inputEmail,
                 inputPw,
                 object : ServerUtil.JsonResponseHandler {
                     override fun onResponse(json: JSONObject) {

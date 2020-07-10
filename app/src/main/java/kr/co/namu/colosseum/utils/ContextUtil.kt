@@ -23,7 +23,7 @@ class ContextUtil {
 
 //        저장된 토큰 조회 가능
 
-        fun getUserToken(context: Context : String){
+        fun getUserToken(context: Context) : String{
 //            메모장 열어주기
             val myPref = context.getSharedPreferences(prefName, android.content.Context.MODE_PRIVATE)
 //            열린 메모장 => USER_TOKEN 항목에 저장된 값을 리턴

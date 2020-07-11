@@ -2,6 +2,7 @@ package kr.co.namu.colosseum
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_view_topic_detail.*
 import kr.co.namu.colosseum.data.Topic
 import kr.co.namu.colosseum.utils.ServerUtil
@@ -51,6 +52,8 @@ class ViewTopicDetailActivity : BaseActivity() {
 
                 runOnUiThread {
                     titleTxt.text = mTopicData.title
+                    Glide.with(mContext).load(mTopicData.imageUrl).into(topicImg)
+
                 }
             }
 

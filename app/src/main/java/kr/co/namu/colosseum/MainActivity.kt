@@ -3,6 +3,7 @@ package kr.co.namu.colosseum
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
+import kr.co.namu.colosseum.data.User
 import kr.co.namu.colosseum.utils.ServerUtil
 import org.json.JSONObject
 
@@ -33,9 +34,12 @@ class MainActivity : BaseActivity() {
 
                     val data  = json.getJSONObject("data")
                     val user = data.getJSONObject("user")
-                    val nickName = user.getString("nick_name")
 
-                    userNickTxt.text = nickName
+                    val loginUser = User.getUserFromJson(user)
+
+
+                    userNickTxt.text = loginUser.nickName
+                    userEmailTxt.text = loginUser.email
                 }
             }
 

@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.topic_list_item.view.*
 import kr.co.namu.colosseum.R
 import kr.co.namu.colosseum.data.Topic
@@ -33,9 +34,14 @@ class TopicAdapter(val mContext:Context, val resId : Int, val mList:ArrayList<To
         val topicImg = row.findViewById<ImageView>(R.id.topicImg)
         val titleTxt = row.findViewById<TextView>(R.id.titleTxt)
 
+
         val data = mList[position]
 
         titleTxt.text = data.title
+
+//        인터넷 주소의 이미지를 => (Glide) 라이브러리로 다운받아서 => 이미지뷰에 적용
+
+        Glide.with(mContext).load(data.imageUrl).into(topicImg)
 
 //        최종 완성된 row를 리스트에 뿌리자.
         return row

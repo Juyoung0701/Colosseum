@@ -5,8 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import kotlinx.android.synthetic.main.topic_list_item.view.*
 import kr.co.namu.colosseum.R
 import kr.co.namu.colosseum.data.Topic
 
@@ -28,6 +30,12 @@ class TopicAdapter(val mContext:Context, val resId : Int, val mList:ArrayList<To
 //        tempRow는 더이상 null일 가능성이 없다. => row에게 전달.
         val row = tempRow!!
 
+        val topicImg = row.findViewById<ImageView>(R.id.topicImg)
+        val titleTxt = row.findViewById<TextView>(R.id.titleTxt)
+
+        val data = mList[position]
+
+        titleTxt.text = data.title
 
 //        최종 완성된 row를 리스트에 뿌리자.
         return row

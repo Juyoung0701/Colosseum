@@ -8,16 +8,19 @@ class Topic {
     var title = ""
     var imageUrl = ""
 
-    companion object
+    companion object{
 
-    fun getTopicFromJson(json: JSONObject) : Topic {
-        val topic = Topic()
+        fun getTopicFromJson(json: JSONObject) : Topic {
+            val topic = Topic()
 
-        topic.id = json.getInt("id")
-        topic.title = json.getString("title")
-        topic.imageUrl = json.getString("img_url")
+            topic.id = json.getInt("id")
+            topic.title = json.getString("title")
+            topic.imageUrl = json.getString("img_url")
 
-        return topic
+            return topic
+        }
     }
+
+
 
 }

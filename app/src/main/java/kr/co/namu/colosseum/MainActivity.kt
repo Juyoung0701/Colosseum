@@ -13,7 +13,7 @@ class MainActivity : BaseActivity() {
 
     val mTopicList = ArrayList<Topic>()
 
-    lateinit var mTopicActivity: TopicAdapter
+    lateinit var mTopicAdapter: TopicAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -1,5 +1,6 @@
 package kr.co.namu.colosseum
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
@@ -22,6 +23,18 @@ class MainActivity : BaseActivity() {
         setValues()
     }
     override fun setupEvents() {
+
+        topicListView.setOnItemClickListener { adapterview, view, position, l ->
+
+            val myIntent = Intent(mContext, ViewTopicDetailActivity::class.java)
+
+//            어떤 주제를 눌렀는지 전달
+            val clickedTopic = mTopicList[position]
+
+            myIntent.putExtra("topicId", clickedTopic.id)
+
+            startActivity(myIntent)
+        }
 
     }
 
